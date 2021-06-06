@@ -12,7 +12,7 @@ import requests
 class CollectDataViews(APIView):
     def get(self, request):
         for i in City.objects.all().order_by("-id"):
-            response=requests.get(url=f'https://api.openweathermap.org/data/2.5/onecall?lat={i.latitude}&lon={i.longitude}&exclude=monthly,daily,current,minutely&appid=fad2242deeb0e1143cb2a4e3b0b36e7e')
+            response=requests.get(url=f'https://api.openweathermap.org/data/2.5/onecall?lat={i.latitude}&lon={i.longitude}&exclude=monthly,daily,current,minutely&appid={key}')
             data=response.json()
             for k in data['hourly']:
                 obj,created=HourlyData.objects.get_or_create(dt=k['dt'],city=i)
