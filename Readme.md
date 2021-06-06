@@ -23,7 +23,15 @@ Now you need to migrate to apply all the changes to new database, it can be done
 ```
 python manage.py migrate
 
-
+#to Use admin localhost:8000/admin you first have to use 
+'''
+Python manage.py create superuser command
+'''
 
 #Enter data into City Table manually Using django admin:
 or
+
+
+
+
+
