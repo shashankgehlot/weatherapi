@@ -29,7 +29,12 @@ Python manage.py create superuser command
 '''
 
 #Enter data into City Table manually Using django admin:
-or
+
+City table has Fields name ,lat, long
+
+
+Call api /api/collect to geather data of 48 hours
+/api/similarity to check avg aggregation of compair city based on temp , humidity, pressure
 
 
 
