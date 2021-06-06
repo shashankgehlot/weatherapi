@@ -22,3 +22,8 @@ Now you need to migrate to apply all the changes to new database, it can be done
 
 ```
 python manage.py migrate
+
+
+
+#Enter data into City Table manually Using django admin:
+or
