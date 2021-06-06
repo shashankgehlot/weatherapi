@@ -3,7 +3,7 @@ Most of the project settings are configured using [environment variables](https:
 Run the following command:
 
 ```bash
-cp .env.example .env
+touch .env
 ```
 
 The important environment variables that you should be focusing for getting your project running is:
