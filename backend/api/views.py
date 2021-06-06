@@ -45,13 +45,6 @@ class CalculateSimilartyView(APIView):
             data=HourlyData.objects.filter(city=i).order_by('-id')[:48].aggregate(Avg('temp'),Avg('pressure'),Avg('humidity'),Avg('dew_point'))
             data['city']=i.name
             list.append(data)
-        
-        for i in range(0,len(list)):
-           for j in range(0,len(list)):
-               if(checkabs(list[j]['temp__avg'],list[i]['temp__avg'])):
-                   print(list[i]['city'],list[j]['city'])
-
-        
         return Response(list,status=status.HTTP_200_OK)
 
 
