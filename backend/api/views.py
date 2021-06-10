@@ -8,11 +8,11 @@ from rest_framework import generics, permissions, status
 from .models import *
 from django.db.models import Avg, Max, Min
 import requests
-
+from django.conf import settings
 class CollectDataViews(APIView):
     def get(self, request):
         for i in City.objects.all().order_by("-id"):
-            response=requests.get(url=f'https://api.openweathermap.org/data/2.5/onecall?lat={i.latitude}&lon={i.longitude}&exclude=monthly,daily,current,minutely&appid={key}')
+            response=requests.get(url=f'https://api.openweathermap.org/data/2.5/onecall?lat={i.latitude}&lon={i.longitude}&exclude=monthly,daily,current,minutely&appid={settings.KEY}')
             data=response.json()
             for k in data['hourly']:
                 obj,created=HourlyData.objects.get_or_create(dt=k['dt'],city=i)
